@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 130" class="loader-scales-svg">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8d7340"/>
+      <stop offset="50%" style="stop-color:#C5A059"/>
+      <stop offset="100%" style="stop-color:#E8C97A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(60,50)" class="scales-group">
+    <!-- Beam -->
+    <line x1="-40" y1="0" x2="40" y2="0" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+    <!-- Central pillar down -->
+    <line x1="0" y1="0" x2="0" y2="55" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Left bowl -->
+    <g class="scale-bowl-left">
+      <path d="M -35 -2 Q -45 18 -35 22 Q -25 18 -35 -2" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-40" y1="0" x2="-35" y2="10" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.8"/>
+    </g>
+    <!-- Right bowl -->
+    <g class="scale-bowl-right">
+      <path d="M 35 -2 Q 45 18 35 22 Q 25 18 35 -2" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="40" y1="0" x2="35" y2="10" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.8"/>
+    </g>
+  </g>
+  <!-- Base -->
+  <path d="M 45 118 L 75 118 L 70 95 L 65 95 L 60 108 L 55 95 L 50 95 Z" fill="url(#goldGrad)" opacity="0.8"/>
+</svg>

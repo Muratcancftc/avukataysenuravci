@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebze Hukuki Hesaplama Araçları - Kıdem, Nafaka, Harç | AV. AYŞENUR AVCI HUKUK BÜROSU</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="description" content="Gebze avukat hesaplama araçları: Kıdem tazminatı, ihbar tazminatı, nafaka, fazla mesai, dava harçları. Ücretsiz hukuki hesaplamalar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <style>
+        .page-header { padding: 150px 0 60px; background: #1a1a1a; text-align: center; border-bottom: 1px solid var(--border-white); }
+        .calc-section { padding: 60px 0; }
+        .calc-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .calc-tab { padding: 12px 24px; background: transparent; border: 1px solid var(--matte-gold); color: var(--matte-gold); cursor: pointer; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 6px; transition: all 0.3s; }
+        .calc-tab:hover, .calc-tab.active { background: var(--matte-gold); color: #000; }
+        .calc-category { display: none; }
+        .calc-category.active { display: block; }
+        .calc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 30px; }
+        .calc-card {
+            background: #111;
+            border: 1px solid var(--border-white);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .calc-card h3 { color: var(--matte-gold); margin-bottom: 25px; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+        .calc-label { display: block; color: var(--text-gray); font-size: 13px; margin-bottom: 8px; }
+        .calc-input { width: 100%; background: #141414; border: 1px solid rgba(255,255,255,0.1); padding: 14px; color: white; font-size: 16px; margin-bottom: 20px; border-radius: 4px; box-sizing: border-box; }
+        .calc-input:focus { outline: none; border-color: var(--matte-gold); }
+        .calc-result { background: rgba(197, 160, 89, 0.1); border: 1px solid var(--border-gold); padding: 25px; margin-top: 25px; border-radius: 6px; text-align: center; }
+        .calc-result .amount { font-size: 28px; font-weight: 700; color: var(--matte-gold); }
+        .calc-result .label { font-size: 12px; color: var(--text-gray); text-transform: uppercase; margin-top: 5px; }
+        .calc-note { font-size: 12px; color: #666; margin-top: 20px; }
+        .calc-actions { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .btn-avukat { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--matte-gold); color: #000; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .btn-avukat:hover { background: var(--matte-gold-muted); color: white; transform: translateY(-2px); }
+        .btn-pdf { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; border: 1px solid var(--matte-gold); color: var(--matte-gold); font-size: 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s; }
+        .btn-pdf:hover { background: rgba(197, 160, 89, 0.2); }
+        .avukat-disclaimer { font-size: 11px; color: #888; margin-top: 15px; text-align: center; font-style: italic; }
+        @media (max-width: 768px) {
+            .page-header { padding: 120px 20px 50px; }
+            .page-header h1 { font-size: 28px !important; }
+            .calc-card { padding: 25px 20px; }
+            .calc-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="canonical" href="https://avukataysenuravci.com.tr/araclar.html">
+</head>
+<body>
+
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" class="loader-sword-shield-svg" width="120" height="100">
+                <defs>
+                    <linearGradient id="loaderMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#5c4a2a"/>
+                        <stop offset="50%" style="stop-color:#C5A059"/>
+                        <stop offset="100%" style="stop-color:#E8C97A"/>
+                    </linearGradient>
+                    <linearGradient id="loaderDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3d2e1a"/>
+                        <stop offset="100%" style="stop-color:#5c4420"/>
+                    </linearGradient>
+                </defs>
+                <path class="loader-shield" d="M 60 10 C 88 28 88 72 60 90 C 32 72 32 28 60 10 Z" fill="url(#loaderMetal)" stroke="rgba(232,201,122,0.4)" stroke-width="1"/>
+                <g class="loader-sword">
+                    <path d="M 59 2 L 61 2 L 61 42 L 59 42 Z" fill="url(#loaderDark)"/>
+                    <path d="M 60 42 Q 52 60 45 88 L 48 95 L 72 95 L 75 88 Q 68 60 60 42" fill="none" stroke="url(#loaderMetal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="60" cy="95" r="3" fill="url(#loaderMetal)"/>
+                </g>
+                <ellipse class="loader-gleam" cx="60" cy="50" rx="12" ry="20" fill="none" stroke="rgba(232,201,122,0.4)" stroke-width="1"/>
+            </svg>
+            <p class="loader-text" data-i18n="loading">Yükleniyor...</p>
+        </div>
+    </div>
+
+    <header id="site-header"></header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 style="color: var(--matte-gold); font-size: 42px;">Gebze Hukuki Hesaplama Araçları</h1>
+            <p style="color: var(--text-gray); max-width: 600px; margin: 20px auto;">Tahmini hesaplamalar için kullanabileceğiniz araçlar. Kesin sonuç için avukat danışmanlığı önerilir.</p>
+        </div>
+    </div>
+
+    <section class="calc-section">
+        <div class="container">
+            <div class="calc-tabs">
+                <button class="calc-tab active" data-tab="is">İş Hukuku</button>
+                <button class="calc-tab" data-tab="aile">Aile Hukuku</button>
+                <button class="calc-tab" data-tab="trafik">Trafik & Tazminat</button>
+            </div>
+
+            <!-- İş Hukuku -->
+            <div id="cat-is" class="calc-category active">
+                <div class="calc-grid">
+                    <div class="calc-card">
+                        <h3><i data-lucide="calculator"></i> Kıdem Tazminatı</h3>
+                        <label class="calc-label">Son Brüt Maaş (TL)</label>
+                        <input type="number" id="kidem-maas" class="calc-input" placeholder="Örn: 25000" min="1">
+                        <label class="calc-label">Çalışma Süresi (Tam Yıl)</label>
+                        <input type="number" id="kidem-yil" class="calc-input" placeholder="Örn: 5" min="1" max="50">
+                        <button onclick="hesaplaKidem()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="kidem-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="kidem-tutar">0 ₺</div>
+                            <div class="label">Tahmini Kıdem Tazminatı (Brüt)</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('kidem', 'Kıdem Tazminatı', document.getElementById('kidem-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Her tam yıl için 30 günlük brüt ücret. 2026 tavan: 64.948,77 TL/ay.</p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3><i data-lucide="clock"></i> İhbar Tazminatı</h3>
+                        <label class="calc-label">Brüt Maaş (TL)</label>
+                        <input type="number" id="ihbar-maas" class="calc-input" placeholder="Örn: 25000" min="1">
+                        <label class="calc-label">Çalışma Süresi (Yıl)</label>
+                        <input type="number" id="ihbar-yil" class="calc-input" placeholder="Örn: 3" min="0" max="50" step="0.5">
+                        <button onclick="hesaplaIhbar()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="ihbar-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="ihbar-tutar">0 ₺</div>
+                            <div class="label">Tahmini İhbar Tazminatı (Brüt)</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('ihbar', 'İhbar Tazminatı', document.getElementById('ihbar-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* İhbar süresi: 0-1.5 yıl: 2 hafta, 1.5-3 yıl: 4 hafta, 3+ yıl: 6 hafta.</p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3><i data-lucide="sun"></i> Yıllık İzin Ücreti</h3>
+                        <label class="calc-label">Brüt Maaş (TL)</label>
+                        <input type="number" id="izin-maas" class="calc-input" placeholder="Örn: 25000" min="1">
+                        <label class="calc-label">Kullanılmayan İzin Günü</label>
+                        <input type="number" id="izin-gun" class="calc-input" placeholder="Örn: 14" min="1" max="26">
+                        <button onclick="hesaplaIzin()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="izin-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="izin-tutar">0 ₺</div>
+                            <div class="label">Tahmini Yıllık İzin Ücreti (Brüt)</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('izin', 'Yıllık İzin Ücreti', document.getElementById('izin-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Güncel brüt maaş üzerinden kullanılmayan izin günlerinin nakit karşılığı.</p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3><i data-lucide="timer"></i> Fazla Mesai Hesaplama</h3>
+                        <label class="calc-label">Brüt Maaş (TL)</label>
+                        <input type="number" id="fazla-maas" class="calc-input" placeholder="Örn: 25000" min="1">
+                        <label class="calc-label">Fazla Mesai Saati (Aylık)</label>
+                        <input type="number" id="fazla-saat" class="calc-input" placeholder="Örn: 20" min="0" step="0.5">
+                        <button onclick="hesaplaFazla()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="fazla-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="fazla-tutar">0 ₺</div>
+                            <div class="label">Tahmini Fazla Mesai Ücreti (Brüt, %50 zamlı)</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('fazla', 'Fazla Mesai Ücreti', document.getElementById('fazla-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Haftalık 45 saati aşan çalışmalar saatlik ücretin %50 zamlı haliyle hesaplanır.</p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3><i data-lucide="arrow-left-right"></i> Brütten Nete / Netten Brüte Maaş</h3>
+                        <label class="calc-label">Maaş Türü</label>
+                        <select id="maas-tip" class="calc-input">
+                            <option value="brut">Brüt → Net</option>
+                            <option value="net">Net → Brüt</option>
+                        </select>
+                        <label class="calc-label">Tutar (TL)</label>
+                        <input type="number" id="maas-tutar" class="calc-input" placeholder="Örn: 25000" min="1">
+                        <button onclick="hesaplaMaas()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="maas-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="maas-cikti">0 ₺</div>
+                            <div class="label" id="maas-label">Net Maaş</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('maas', 'Maaş Hesaplama', document.getElementById('maas-cikti').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* SGK ve vergi kesintileri tahmini olarak hesaplanır (2026 oranları).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aile Hukuku -->
+            <div id="cat-aile" class="calc-category">
+                <div class="calc-grid">
+                    <div class="calc-card">
+                        <h3><i data-lucide="heart"></i> Nafaka Tahmini</h3>
+                        <label class="calc-label">Aylık Gelir (TL)</label>
+                        <input type="number" id="nafaka-gelir" class="calc-input" placeholder="Örn: 30000" min="0">
+                        <label class="calc-label">Çocuk Sayısı</label>
+                        <input type="number" id="nafaka-cocuk" class="calc-input" placeholder="Örn: 2" min="0" max="10">
+                        <button onclick="hesaplaNafaka()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="nafaka-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="nafaka-tutar">0 - 0 ₺</div>
+                            <div class="label">Tahmini Aylık İştirak Nafakası Aralığı</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('nafaka', 'Nafaka Tahmini', document.getElementById('nafaka-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Gelir, çocuk sayısı ve yaşam standartlarına göre tahmini aralık.</p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3><i data-lucide="gem"></i> Düğün Takıları (Ziynet) Değerlemesi</h3>
+                        <label class="calc-label">Altın Gram</label>
+                        <input type="number" id="ziynet-gram" class="calc-input" placeholder="Örn: 50" min="0" step="0.1">
+                        <label class="calc-label">Altın Kuru (TL/gr) - Güncel piyasa</label>
+                        <input type="number" id="ziynet-kur" class="calc-input" placeholder="Örn: 2800 (2026 tahmini)" min="1" step="0.01">
+                        <button onclick="hesaplaZiynet()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="ziynet-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="ziynet-tutar">0 ₺</div>
+                            <div class="label">Tahmini Ziynet Eşyası Değeri</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('ziynet', 'Ziynet Değerlemesi', document.getElementById('ziynet-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Boşanma davalarında talep edilecek takı bedeli tahmini. Güncel kuru girin.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trafik & Tazminat -->
+            <div id="cat-trafik" class="calc-category">
+                <div class="calc-grid">
+                    <div class="calc-card">
+                        <h3><i data-lucide="car"></i> Araç Değer Kaybı</h3>
+                        <label class="calc-label">Araç Piyasa Değeri (TL)</label>
+                        <input type="number" id="arac-deger" class="calc-input" placeholder="Örn: 500000" min="1">
+                        <label class="calc-label">Hasar Oranı (%)</label>
+                        <input type="number" id="arac-hasar" class="calc-input" placeholder="Örn: 15" min="1" max="100">
+                        <label class="calc-label">Araç Yaşı (Yıl)</label>
+                        <input type="number" id="arac-yas" class="calc-input" placeholder="Örn: 3" min="0" max="20">
+                        <button onclick="hesaplaArac()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="arac-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="arac-tutar">0 ₺</div>
+                            <div class="label">Tahmini Değer Kaybı (Sigortadan Talep)</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('arac', 'Araç Değer Kaybı', document.getElementById('arac-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Kilometre, yaş ve hasar miktarına göre sigortadan talep edilebilecek tutar tahmini.</p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3><i data-lucide="heart-pulse"></i> Trafik Kazası Manevi Tazminat</h3>
+                        <label class="calc-label">Yaralanma Derecesi</label>
+                        <select id="tazminat-derece" class="calc-input">
+                            <option value="hafif">Hafif Yaralanma</option>
+                            <option value="orta">Orta Derece</option>
+                            <option value="agir">Ağır Yaralanma</option>
+                            <option value="olucu">Ölümlü / Kalıcı Sakatlık</option>
+                        </select>
+                        <label class="calc-label">Kusur Oranı (%)</label>
+                        <input type="number" id="tazminat-kusur" class="calc-input" placeholder="Örn: 100" min="1" max="100">
+                        <button onclick="hesaplaTazminat()" class="btn-primary fill" style="width: 100%; padding: 15px;">Hesapla</button>
+                        <div id="tazminat-sonuc" class="calc-result" style="display: none;">
+                            <div class="amount" id="tazminat-tutar">0 - 0 ₺</div>
+                            <div class="label">Tahmini Manevi Tazminat Aralığı</div>
+                            <div class="calc-actions">
+                                <button class="btn-pdf" onclick="pdfIndir('tazminat', 'Manevi Tazminat', document.getElementById('tazminat-tutar').textContent)"><i data-lucide="file-down"></i> PDF İndir</button>
+                                <a href="iletisim.html" class="btn-avukat"><i data-lucide="phone"></i> Avukata Danış</a>
+                            </div>
+                            <p class="avukat-disclaimer">Bu rakamlar tahminidir. Kesin sonuç için dosyanızı incelememize izin verin.</p>
+                        </div>
+                        <p class="calc-note">* Yaralanma derecesi ve kusur oranına göre mahkeme emsalleri tahmini.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="site-footer"></footer>
+
+    <script src="js/translations.js" defer></script>
+    <script src="js/site-config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/schema.js" defer></script>
+    <script>
+        // 2026 Güncel Değerler (Ocak-Haziran dönemi)
+        const ASGARI_URET_2026 = 33030;
+        const KIDEM_TAVAN_2026 = 64948.77;
+
+        document.querySelectorAll('.calc-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.calc-category').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                const cat = document.getElementById('cat-' + tab.dataset.tab);
+                if (cat) cat.classList.add('active');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            });
+        });
+        const hash = window.location.hash.replace('#', '');
+        if (hash && hash.startsWith('cat-')) {
+            const tabId = hash.replace('cat-', '');
+            const tab = document.querySelector('.calc-tab[data-tab="' + tabId + '"]');
+            if (tab) {
+                document.querySelectorAll('.calc-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.calc-category').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                const cat = document.getElementById(hash);
+                if (cat) cat.classList.add('active');
+            }
+        }
+
+        function hesaplaKidem() {
+            const maas = parseFloat(document.getElementById('kidem-maas').value) || 0;
+            const yil = parseInt(document.getElementById('kidem-yil').value) || 0;
+            if (maas <= 0 || yil < 1) return;
+            const efektifMaas = Math.min(maas, KIDEM_TAVAN_2026);
+            const tutar = Math.round((efektifMaas / 30) * 30 * yil);
+            document.getElementById('kidem-tutar').textContent = tutar.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('kidem-sonuc').style.display = 'block';
+        }
+        function hesaplaIhbar() {
+            const maas = parseFloat(document.getElementById('ihbar-maas').value) || 0;
+            const yil = parseFloat(document.getElementById('ihbar-yil').value) || 0;
+            if (maas <= 0) return;
+            const efektifMaas = Math.min(maas, KIDEM_TAVAN_2026);
+            let hafta = 2;
+            if (yil >= 3) hafta = 6; else if (yil >= 1.5) hafta = 4;
+            const tutar = Math.round((efektifMaas / 30) * (hafta * 7));
+            document.getElementById('ihbar-tutar').textContent = tutar.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('ihbar-sonuc').style.display = 'block';
+        }
+        function hesaplaIzin() {
+            const maas = parseFloat(document.getElementById('izin-maas').value) || 0;
+            const gun = parseFloat(document.getElementById('izin-gun').value) || 0;
+            if (maas <= 0 || gun <= 0) return;
+            const efektifMaas = Math.min(maas, KIDEM_TAVAN_2026);
+            const tutar = Math.round((efektifMaas / 30) * gun);
+            document.getElementById('izin-tutar').textContent = tutar.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('izin-sonuc').style.display = 'block';
+        }
+        function hesaplaFazla() {
+            const maas = parseFloat(document.getElementById('fazla-maas').value) || 0;
+            const saat = parseFloat(document.getElementById('fazla-saat').value) || 0;
+            if (maas <= 0 || saat <= 0) return;
+            const efektifMaas = Math.min(maas, KIDEM_TAVAN_2026);
+            const saatlik = efektifMaas / 225;
+            const tutar = Math.round(saatlik * 1.5 * saat);
+            document.getElementById('fazla-tutar').textContent = tutar.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('fazla-sonuc').style.display = 'block';
+        }
+        function hesaplaMaas() {
+            const tip = document.getElementById('maas-tip').value;
+            let tutar = parseFloat(document.getElementById('maas-tutar').value) || 0;
+            if (tutar <= 0) return;
+            const sgkIsci = 0.14;
+            const issizlik = 0.01;
+            const damga = 0.00759;
+            const vergiOran = 0.15;
+            const aylikVergiIstisna = 28000;
+            if (tip === 'brut') {
+                const sgkKesinti = tutar * sgkIsci;
+                const issizlikKesinti = tutar * issizlik;
+                const damgaKesinti = tutar * damga;
+                const vergiMatrah = Math.max(0, tutar - sgkKesinti - issizlikKesinti - aylikVergiIstisna);
+                const vergiKesinti = vergiMatrah * vergiOran;
+                const net = tutar - sgkKesinti - issizlikKesinti - damgaKesinti - vergiKesinti;
+                document.getElementById('maas-cikti').textContent = Math.round(net).toLocaleString('tr-TR') + ' ₺';
+                document.getElementById('maas-label').textContent = 'Net Maaş (Tahmini, 2026)';
+            } else {
+                const hedefNet = tutar;
+                let brut = hedefNet * 1.28;
+                for (let i = 0; i < 15; i++) {
+                    const sgk = brut * sgkIsci;
+                    const iss = brut * issizlik;
+                    const dmg = brut * damga;
+                    const matrah = Math.max(0, brut - sgk - iss - aylikVergiIstisna);
+                    const vergi = matrah * vergiOran;
+                    const netHesap = brut - sgk - iss - dmg - vergi;
+                    if (Math.abs(netHesap - hedefNet) < 1) break;
+                    brut = brut * (hedefNet / netHesap);
+                }
+                document.getElementById('maas-cikti').textContent = Math.round(brut).toLocaleString('tr-TR') + ' ₺';
+                document.getElementById('maas-label').textContent = 'Brüt Maaş (Tahmini, 2026)';
+            }
+            document.getElementById('maas-sonuc').style.display = 'block';
+        }
+        function hesaplaNafaka() {
+            const gelir = parseFloat(document.getElementById('nafaka-gelir').value) || 0;
+            const cocuk = parseInt(document.getElementById('nafaka-cocuk').value) || 0;
+            if (gelir <= 0) return;
+            const cocukOrani = cocuk <= 0 ? 0.2 : (0.2 + Math.min(cocuk, 5) * 0.04);
+            const min = Math.round(gelir * cocukOrani * 0.6);
+            const max = Math.round(gelir * cocukOrani * 1.3);
+            document.getElementById('nafaka-tutar').textContent = min.toLocaleString('tr-TR') + ' - ' + max.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('nafaka-sonuc').style.display = 'block';
+        }
+        function hesaplaZiynet() {
+            const gram = parseFloat(document.getElementById('ziynet-gram').value) || 0;
+            const kur = parseFloat(document.getElementById('ziynet-kur').value) || 0;
+            if (gram <= 0 || kur <= 0) return;
+            const tutar = Math.round(gram * kur * 100) / 100;
+            document.getElementById('ziynet-tutar').textContent = tutar.toLocaleString('tr-TR', {minimumFractionDigits: 2}) + ' ₺';
+            document.getElementById('ziynet-sonuc').style.display = 'block';
+        }
+        function hesaplaArac() {
+            const deger = parseFloat(document.getElementById('arac-deger').value) || 0;
+            const hasar = parseFloat(document.getElementById('arac-hasar').value) || 0;
+            const yas = parseInt(document.getElementById('arac-yas').value) || 0;
+            if (deger <= 0 || hasar <= 0) return;
+            const yasCarpan = Math.max(0.3, 1 - yas * 0.05);
+            const tutar = Math.round(deger * (hasar / 100) * 0.25 * yasCarpan);
+            document.getElementById('arac-tutar').textContent = tutar.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('arac-sonuc').style.display = 'block';
+        }
+        function hesaplaTazminat() {
+            const derece = document.getElementById('tazminat-derece').value;
+            const kusur = parseFloat(document.getElementById('tazminat-kusur').value) || 100;
+            const aralik = { hafif: [8000, 40000], orta: [40000, 120000], agir: [120000, 350000], olucu: [250000, 800000] };
+            const [min, max] = aralik[derece];
+            const sonucMin = Math.round(min * (kusur / 100));
+            const sonucMax = Math.round(max * (kusur / 100));
+            document.getElementById('tazminat-tutar').textContent = sonucMin.toLocaleString('tr-TR') + ' - ' + sonucMax.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('tazminat-sonuc').style.display = 'block';
+        }
+        function loadJsPDF() {
+            return new Promise((resolve, reject) => {
+                if (typeof window.jspdf !== 'undefined') { resolve(); return; }
+                const s = document.createElement('script');
+                s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+                s.onload = () => resolve();
+                s.onerror = () => reject(new Error('jsPDF yüklenemedi'));
+                document.head.appendChild(s);
+            });
+        }
+        async function pdfIndir(id, baslik, sonuc) {
+            try {
+                await loadJsPDF();
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.setFontSize(18);
+                doc.text('AV. AYŞENUR AVCI HUKUK BÜROSU', 105, 20, { align: 'center' });
+                doc.setFontSize(10);
+                doc.text('Resmi web sitesi uzerinden olusturulmustur.', 105, 28, { align: 'center' });
+                doc.setDrawColor(197, 160, 89);
+                doc.setLineWidth(0.5);
+                doc.line(20, 40, 190, 40);
+                doc.setFontSize(14);
+                doc.text(baslik + ' Hesaplama Sonucu', 105, 50, { align: 'center' });
+                doc.setFontSize(12);
+                doc.text('Sonuç: ' + sonuc, 105, 65, { align: 'center' });
+                doc.setFontSize(9);
+                doc.text('Bu belge tahmini hesaplama sonucudur. Kesin bilgi için avukat danışmanlığı alınız.', 105, 80, { align: 'center' });
+                doc.save('AysenurAvcı_Hukuk_' + baslik.replace(/\s/g, '_') + '.pdf');
+            } catch (e) {
+                console.warn('PDF oluşturulamadı, yazdırma kullanılıyor:', e);
+                window.print();
+            }
+        }
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+</body>
+</html>

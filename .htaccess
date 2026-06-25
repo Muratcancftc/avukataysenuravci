@@ -1,0 +1,62 @@
+# SEO canonical redirects
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # index.html -> /
+    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+    RewriteRule ^index\.html$ / [R=301,L]
+
+    # Force HTTPS + non-www canonical host
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP_HOST} ^www\.avukataysenuravci\.com\.tr$ [NC]
+    RewriteRule ^ https://avukataysenuravci.com.tr%{REQUEST_URI} [R=301,L]
+
+    # Clean URL support: /sayfa -> /sayfa.html (if file exists)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+    RewriteRule ^([A-Za-z0-9_-]+)/?$ $1.html [L]
+</IfModule>
+
+# Tarayıcı önbellekleme - Performans ve Core Web Vitals
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+# Cache-Control
+<IfModule mod_headers.c>
+    Header append Vary Accept-Encoding
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=3600, public"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    <FilesMatch "\.(woff2|woff|ttf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# Brotli sıkıştırma (destek varsa)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Gzip sıkıştırma
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

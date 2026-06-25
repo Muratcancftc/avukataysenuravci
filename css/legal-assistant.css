@@ -1,0 +1,487 @@
+/* Floating Action Buttons - İkon odaklı, hover/expand */
+.legal-assistant-root {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    left: auto;
+    z-index: 9997;
+    font-family: 'Inter', sans-serif;
+}
+
+.legal-fab-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    animation: legal-fab-pop 0.5s ease-out;
+}
+
+@keyframes legal-fab-pop {
+    from { opacity: 0; transform: translateY(12px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.legal-fab {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 52px;
+    min-width: 52px;
+    max-width: 52px;
+    border-radius: 26px;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.06);
+    transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.legal-fab:hover {
+    max-width: 220px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+}
+
+/* Mobil: tıklayınca genişlesin */
+.legal-fab.expanded {
+    max-width: 220px;
+}
+
+/* CLS önleme: Sabit boyutlar */
+.legal-fab-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.legal-fab-icon svg,
+.legal-fab-icon i {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.legal-fab-label {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding-right: 0;
+    transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.35s ease;
+}
+
+.legal-fab:hover .legal-fab-label,
+.legal-fab.expanded .legal-fab-label {
+    max-width: 160px;
+    opacity: 1;
+    padding-right: 18px;
+}
+
+/* Hukuki Asistan FAB - Altın tonları */
+.legal-fab-chat {
+    background: linear-gradient(135deg, #D4B896 0%, #C4A77D 50%, #B8956A 100%);
+    color: #1a1a1a;
+}
+
+.legal-fab-chat:hover {
+    background: linear-gradient(135deg, #E5C9A8 0%, #D4B896 50%, #C4A77D 100%);
+}
+
+/* WhatsApp FAB - Koyu + yeşil vurgu */
+.legal-fab-whatsapp {
+    background: linear-gradient(180deg, #1f1f1f 0%, #1a1a1a 100%);
+    color: #fff;
+}
+
+.legal-fab-whatsapp:hover {
+    background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+    color: #25D366;
+}
+
+.legal-fab-whatsapp .legal-fab-icon svg {
+    fill: #25D366;
+}
+
+/* Chat paneli - Ekran ortasında, kompakt ve estetik */
+.legal-assistant-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(360px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
+    height: min(420px, calc(100vh - 80px));
+    max-height: calc(100dvh - 80px);
+    background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+    border: 1px solid rgba(196, 167, 125, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(196, 167, 125, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+    animation: legal-panel-center 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes legal-panel-center {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.legal-assistant-panel-hidden {
+    display: none !important;
+}
+
+.legal-assistant-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 9997;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.legal-assistant-backdrop.legal-assistant-panel-hidden {
+    display: none !important;
+}
+
+.legal-assistant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, rgba(196, 167, 125, 0.12) 0%, rgba(196, 167, 125, 0.05) 100%);
+    border-bottom: 1px solid rgba(196, 167, 125, 0.25);
+    flex-shrink: 0;
+}
+
+.legal-assistant-header h4 {
+    color: #D4B896;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.legal-assistant-header button {
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+}
+
+.legal-assistant-header button:hover {
+    color: #C4A77D;
+}
+
+.legal-assistant-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+}
+
+.legal-assistant-msg {
+    max-width: 90%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.legal-assistant-msg-user {
+    align-self: flex-end;
+    background: rgba(196, 167, 125, 0.2);
+    border: 1px solid rgba(196, 167, 125, 0.4);
+    color: var(--text-white);
+}
+
+.legal-assistant-msg-bot {
+    align-self: flex-start;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-gray);
+}
+
+.legal-assistant-disclaimer {
+    font-size: 10px;
+    color: #555;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.legal-assistant-msg-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: rgba(37, 211, 102, 0.15);
+    color: #25D366;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.legal-assistant-msg-wa:hover {
+    background: rgba(37, 211, 102, 0.25);
+    color: #2ee76d;
+}
+
+.legal-assistant-msg-wa svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.legal-assistant-loading .legal-assistant-msg-content {
+    padding: 8px 0;
+}
+
+.legal-assistant-dots {
+    display: inline-flex;
+    gap: 4px;
+}
+
+.legal-assistant-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4A77D;
+    animation: legal-dots 1.4s ease-in-out infinite both;
+}
+
+.legal-assistant-dots span:nth-child(1) { animation-delay: -0.32s; }
+.legal-assistant-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes legal-dots {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+.legal-assistant-cta {
+    padding: 14px 20px;
+    background: rgba(37, 211, 102, 0.08);
+    border-top: 1px solid rgba(37, 211, 102, 0.25);
+}
+
+.legal-assistant-cta p {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin: 0 0 10px 0;
+}
+
+.legal-assistant-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #25D366;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.legal-assistant-whatsapp-btn:hover {
+    background: #20bd5a;
+    transform: scale(1.02);
+}
+
+.legal-assistant-input-wrap {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+}
+
+.legal-assistant-input-wrap input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 16px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    color: var(--text-white);
+    font-size: 16px;
+}
+
+@media (min-width: 481px) {
+    .legal-assistant-input-wrap input {
+        font-size: 14px;
+    }
+}
+
+.legal-assistant-input-wrap input::placeholder {
+    color: #666;
+}
+
+.legal-assistant-input-wrap input:focus {
+    outline: none;
+    border-color: #C4A77D;
+}
+
+.legal-assistant-input-wrap button {
+    padding: 12px 16px;
+    background: #C4A77D;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.legal-assistant-input-wrap button:hover {
+    background: #d4b78d;
+}
+
+/* Mobil: sticky bar üzerinde, daha kompakt */
+@media (max-width: 768px) {
+    .legal-assistant-root {
+        /* Keep FAB above sticky call bar + iOS safe area */
+        bottom: calc(86px + env(safe-area-inset-bottom));
+        right: 16px;
+    }
+    .legal-fab {
+        height: 48px;
+        min-width: 48px;
+        max-width: 48px;
+        border-radius: 24px;
+    }
+    .legal-fab:hover,
+    .legal-fab.expanded {
+        max-width: 200px;
+    }
+    .legal-fab-icon {
+        width: 48px;
+        height: 48px;
+    }
+    .legal-fab-label {
+        font-size: 13px;
+    }
+    .legal-fab:hover .legal-fab-label,
+    .legal-fab.expanded .legal-fab-label {
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-assistant-root {
+        /* Small devices need extra clearance to avoid overlap */
+        bottom: calc(82px + env(safe-area-inset-bottom));
+        right: 12px;
+    }
+    .legal-fab-container {
+        gap: 10px;
+    }
+    .legal-fab {
+        height: 46px;
+        min-width: 46px;
+        max-width: 46px;
+        border-radius: 23px;
+    }
+    .legal-fab:hover,
+    .legal-fab.expanded {
+        max-width: 190px;
+    }
+    .legal-fab-icon {
+        width: 46px;
+        height: 46px;
+    }
+    .legal-assistant-panel {
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
+        height: calc(100dvh - 60px);
+        max-height: calc(100dvh - 60px);
+    }
+}
+
+/* RTL: FAB'lar sol alt köşede, label solda */
+[dir="rtl"] .legal-assistant-root {
+    right: auto;
+    left: 24px;
+}
+
+[dir="rtl"] .legal-fab-container {
+    align-items: flex-start;
+}
+
+[dir="rtl"] .legal-fab {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .legal-fab-label {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+[dir="rtl"] .legal-fab:hover .legal-fab-label,
+[dir="rtl"] .legal-fab.expanded .legal-fab-label {
+    padding-right: 18px;
+    padding-left: 0;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .legal-assistant-root {
+        right: auto;
+        left: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    [dir="rtl"] .legal-assistant-root {
+        left: 12px;
+    }
+}
+
+/* Light mode (accessibility-mode) - zıtlık için */
+body.accessibility-mode .legal-fab-chat {
+    background: linear-gradient(135deg, #E8D4B8 0%, #D4B896 50%, #C4A77D 100%);
+    color: #1a1a1a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+body.accessibility-mode .legal-fab-chat:hover {
+    background: linear-gradient(135deg, #F0E0C8 0%, #E5D0A8 50%, #D4B896 100%);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+}
+
+body.accessibility-mode .legal-fab-whatsapp {
+    background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+body.accessibility-mode .legal-fab-whatsapp:hover {
+    background: linear-gradient(180deg, #383838 0%, #2d2d2d 100%);
+    color: #25D366;
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gebze Avukat Blog | Hukuk Makaleleri 2026</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <style>
+        .page-header {
+            padding: 150px 0 60px;
+            background: #1a1a1a;
+            border-bottom: 1px solid var(--border-white);
+            text-align: center;
+        }
+        .search-container {
+            max-width: 600px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid var(--border-gold);
+            padding: 15px 20px 15px 50px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--matte-gold);
+        }
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-white);
+            color: var(--text-gray);
+            padding: 8px 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            border-color: var(--matte-gold);
+            color: #000;
+            background: var(--matte-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
+        }
+        .show-all-wrap { display: flex; justify-content: flex-end; margin-top: 40px; }
+        @media (max-width: 768px) {
+            .show-all-wrap { justify-content: center; margin-top: 30px; padding: 0 16px; }
+            .page-header { padding: 120px 20px 50px; }
+            .page-header h1 { font-size: 32px !important; }
+            .page-header p { font-size: 14px !important; margin: 15px auto !important; }
+            .search-container { margin: 25px 16px 0; }
+            .category-filter { gap: 10px; margin-top: 20px; padding: 0 16px; }
+            .filter-btn { padding: 6px 14px; font-size: 11px; }
+        }
+        @media (max-width: 480px) {
+            .page-header { padding: 100px 16px 40px; }
+            .page-header h1 { font-size: 26px !important; }
+        }
+    </style>
+    <meta name="description" content="Gebze avukat blogu: boşanma, iş hukuku, icra, ceza ve tazminat alanlarında 2026 güncel hukuk makaleleri.">
+    <meta name="keywords" content="Gebze avukat blog, Gebze hukuk makaleleri, Gebze boşanma avukatı, iş tazminat avukatı, icra avukatı">
+    <meta property="og:title" content="Gebze Avukat Blog | Hukuk Makaleleri 2026">
+    <meta property="og:description" content="Gebze merkezli güncel hukuk makaleleri: boşanma, iş, ceza, icra ve gayrimenkul rehberleri.">
+    <meta property="og:url" content="https://avukataysenuravci.com.tr/makaleler.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://avukataysenuravci.com.tr/favicon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gebze Avukat Blog | Hukuk Makaleleri 2026">
+    <meta name="twitter:description" content="Gebze hukuk bürosu tarafından hazırlanan güncel hukuk makaleleri.">
+    <meta name="twitter:image" content="https://avukataysenuravci.com.tr/favicon.svg">
+    <link rel="canonical" href="https://avukataysenuravci.com.tr/makaleler.html">
+</head>
+<body>
+
+    <!-- Page Loader - Kılıç Kalkan -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" class="loader-sword-shield-svg" width="120" height="100">
+                <defs>
+                    <linearGradient id="loaderMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#5c4a2a"/>
+                        <stop offset="50%" style="stop-color:#C5A059"/>
+                        <stop offset="100%" style="stop-color:#E8C97A"/>
+                    </linearGradient>
+                    <linearGradient id="loaderDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3d2e1a"/>
+                        <stop offset="100%" style="stop-color:#5c4420"/>
+                    </linearGradient>
+                </defs>
+                <path class="loader-shield" d="M 60 10 C 88 28 88 72 60 90 C 32 72 32 28 60 10 Z" fill="url(#loaderMetal)" stroke="rgba(232,201,122,0.4)" stroke-width="1"/>
+                <g class="loader-sword">
+                    <path d="M 59 2 L 61 2 L 61 42 L 59 42 Z" fill="url(#loaderDark)"/>
+                    <path d="M 60 42 Q 52 60 45 88 L 48 95 L 72 95 L 75 88 Q 68 60 60 42" fill="none" stroke="url(#loaderMetal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="60" cy="95" r="3" fill="url(#loaderMetal)"/>
+                </g>
+                <ellipse class="loader-gleam" cx="60" cy="50" rx="12" ry="20" fill="none" stroke="rgba(232,201,122,0.4)" stroke-width="1"/>
+            </svg>
+            <p class="loader-text" data-i18n="loading">Yükleniyor...</p>
+        </div>
+    </div>
+
+    <header id="site-header"></header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 style="color: var(--matte-gold); font-size: 48px;">Gebze Hukuk Bürosu Makale Arşivi</h1>
+            <p style="color: var(--text-gray); max-width: 700px; margin: 20px auto;" data-i18n="blog-desc-full">
+                Başta Gebze ve Kocaeli olmak üzere, tüm Türkiye genelindeki hukuki gelişmeleri, güncel makaleleri ve kapsamlı rehber içeriklerini burada bulabilirsiniz.
+            </p>
+            
+            <div class="search-container">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" class="search-input" data-i18n-placeholder="blog-search-placeholder" placeholder="Makalelerde ara (örn: boşanma, tazminat)...">
+            </div>
+
+            <div class="category-filter" id="category-filter">
+                <button class="filter-btn active" data-category="all" data-i18n="blog-cat-all">Tümü</button>
+                <button class="filter-btn" data-category="Aile Hukuku" data-i18n="nav-family-law">Aile Hukuku</button>
+                <button class="filter-btn" data-category="Ceza Hukuku" data-i18n="nav-criminal-law">Ceza Hukuku</button>
+                <button class="filter-btn" data-category="İş Hukuku" data-i18n="nav-labor-law">İş Hukuku</button>
+                <button class="filter-btn" data-category="İcra İflas">İcra İflas</button>
+                <button class="filter-btn" data-category="Gayrimenkul" data-i18n="nav-realestate-law">Gayrimenkul</button>
+                <button class="filter-btn" data-category="Bilişim & E-Ticaret" data-i18n="nav-it-law">Bilişim</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding" style="padding-bottom: 40px;">
+        <div class="container">
+            <div id="all-articles" class="article-grid">
+                <!-- Dynamically populated -->
+            </div>
+            
+            <div class="show-all-wrap">
+                <button id="show-all-btn" class="btn-primary fill" style="font-size: 12px; padding: 12px 30px;" data-i18n="blog-btn-all">
+                    Tümünü Gör
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer id="site-footer"></footer>
+
+    <script src="js/translations.js" defer></script>
+    <script src="js/site-config.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/schema.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('all-articles');
+            const searchInput = document.querySelector('.search-input');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const showAllBtn = document.getElementById('show-all-btn');
+            
+            let activeCategory = 'all';
+            let searchQuery = '';
+            let isShowingAll = false;
+            const INITIAL_LIMIT = 12;
+            const TRANSLATABLE_LANGS = new Set(['en', 'de', 'fr', 'ru', 'ar']);
+            let renderToken = 0;
+
+            function getTranslationCacheKey(text, lang) {
+                return `article-i18n:${lang}:${text}`;
+            }
+
+            async function translateText(text, lang) {
+                if (!text || !lang || lang === 'tr' || !TRANSLATABLE_LANGS.has(lang)) return text;
+                if (typeof window.translateUiText === 'function') {
+                    return window.translateUiText(text, lang);
+                }
+
+                // Fallback for unexpected load-order edge case
+                const cacheKey = getTranslationCacheKey(text, lang);
+                const cached = localStorage.getItem(cacheKey);
+                if (cached) return cached;
+                return text;
+            }
+
+            async function getArticleCardText(article, lang) {
+                if (lang === 'tr' || !TRANSLATABLE_LANGS.has(lang)) {
+                    return { title: article.title, excerpt: article.excerpt };
+                }
+                const [title, excerpt] = await Promise.all([
+                    translateText(article.title, lang),
+                    translateText(article.excerpt, lang)
+                ]);
+                return { title, excerpt };
+            }
+
+            async function renderArticles() {
+                if (!container) return;
+                const myToken = ++renderToken;
+
+                let filteredArticles = articles.filter(article => {
+                    const matchesCategory = activeCategory === 'all' || article.category === activeCategory;
+                    const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                         article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+                    return matchesCategory && matchesSearch;
+                });
+
+                // Apply limit if not showing all
+                const totalFiltered = filteredArticles.length;
+                if (!isShowingAll && totalFiltered > INITIAL_LIMIT) {
+                    filteredArticles = filteredArticles.slice(0, INITIAL_LIMIT);
+                    showAllBtn.style.display = 'block';
+                } else {
+                    showAllBtn.style.display = 'none';
+                }
+
+                if (filteredArticles.length === 0) {
+                    container.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
+                            <i data-lucide="search-x" style="width: 48px; height: 48px; color: #333; margin-bottom: 20px;"></i>
+                            <p style="color: var(--text-gray);" data-i18n="blog-no-results">Aradığınız kriterlere uygun makale bulunamadı.</p>
+                        </div>
+                    `;
+                } else {
+                    const langForCards = (typeof currentLang !== 'undefined') ? currentLang : 'tr';
+                    const displayCards = await Promise.all(
+                        filteredArticles.map(async (article) => {
+                            const translated = await getArticleCardText(article, langForCards);
+                            return { article, translated };
+                        })
+                    );
+                    if (myToken !== renderToken) return;
+
+                    container.innerHTML = displayCards.map(({ article, translated }) => {
+                        const catTitle = translations[currentLang][article.categorySlug] || article.category;
+                        return `
+                        <article class="article-card">
+                            <span class="category" data-i18n="${article.categorySlug}">${catTitle}</span>
+                            <h3>${translated.title}</h3>
+                            <p>${translated.excerpt}</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <span style="font-size: 11px; color: #555;"><span data-i18n="blog-date">Tarih</span>: ${article.date}</span>
+                                <a href="blog/${article.slug}.html" class="read-more">
+                                    <span data-i18n="blog-read-more">Devamını Oku</span> <i data-lucide="arrow-right" style="width: 14px;"></i>
+                                </a>
+                            </div>
+                        </article>
+                    `}).join('');
+                }
+                lucide.createIcons();
+                applyLanguage(currentLang);
+            }
+
+            // Search input listener
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                isShowingAll = false; // Reset show all on search
+                renderArticles();
+            });
+
+            // Category filter listener
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    activeCategory = btn.getAttribute('data-category');
+                    isShowingAll = false; // Reset show all on filter
+                    renderArticles();
+                });
+            });
+
+            // Show all button listener
+            showAllBtn.addEventListener('click', () => {
+                isShowingAll = true;
+                renderArticles();
+            });
+
+            window.addEventListener('languageChanged', () => {
+                renderArticles();
+            });
+
+            // Initial render
+            renderArticles();
+        });
+    </script>
+</body>
+</html>
