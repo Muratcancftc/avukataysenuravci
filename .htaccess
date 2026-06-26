@@ -9,7 +9,7 @@
     # Force HTTPS + non-www canonical host
     RewriteCond %{HTTPS} !=on [OR]
     RewriteCond %{HTTP_HOST} ^www\.avukataysenuravci\.com\.tr$ [NC]
-    RewriteRule ^ https://avukataysenuravci.com.tr%{REQUEST_URI} [R=301,L]
+    RewriteRule ^ https://avukataysenuravci.com%{REQUEST_URI} [R=301,L]
 
     # Clean URL support: /sayfa -> /sayfa.html (if file exists)
     RewriteCond %{REQUEST_FILENAME} !-f

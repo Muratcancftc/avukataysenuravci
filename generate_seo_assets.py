@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote
 
-SITE_URL = "https://avukataysenuravci.com.tr"
+SITE_URL = "https://avukataysenuravci.com"
 ROOT = Path(__file__).resolve().parent
 EXCLUDED_DIRS = {".git", "node_modules", ".cursor", "__pycache__"}
 

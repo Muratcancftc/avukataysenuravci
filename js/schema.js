@@ -5,7 +5,7 @@
 (function() {
     'use strict';
 
-    const SITE_URL = (typeof siteConfig !== 'undefined' && siteConfig.siteUrl) ? siteConfig.siteUrl : (window.location.origin || 'https://avukataysenuravci.com.tr');
+    const SITE_URL = (typeof siteConfig !== 'undefined' && siteConfig.siteUrl) ? siteConfig.siteUrl : (window.location.origin || 'https://avukataysenuravci.com');
     const BRAND_NAME = (typeof siteConfig !== 'undefined' && siteConfig.brandName) ? siteConfig.brandName : 'AV. AYŞENUR AVCI HUKUK BÜROSU';
     const LOGO_URL = SITE_URL + '/images/logo-icon-512.png';
 

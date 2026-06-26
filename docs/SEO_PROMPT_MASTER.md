@@ -5,15 +5,15 @@ Bu prompt her yeni hukuk makalesi uretiminde kullanilir.
 ## Master Prompt
 
 ```text
-avukataysenuravci.com.tr icin profesyonel ve SEO uyumlu bir hukuk makalesi yazmani istiyorum.
+avukataysenuravci.com icin profesyonel ve SEO uyumlu bir hukuk makalesi yazmani istiyorum.
 
 Konu: [BURAYA KONUYU YAZIN]
 Hedef: Gebze ve Kocaeli bolgesindeki muvekkil adaylarina bilgi vermek.
 
 Ic Linkleme Kurallari (Makale icinde en az 3 adet):
-- 'Gebze Hukuk Burosu' (https://avukataysenuravci.com.tr/)
-- 'Iletisim' (https://avukataysenuravci.com.tr/iletisim.html)
-- Konuyla alakali baska bir blog yazisi (https://avukataysenuravci.com.tr/blog/[slug].html)
+- 'Gebze Hukuk Burosu' (https://avukataysenuravci.com/)
+- 'Iletisim' (https://avukataysenuravci.com/iletisim.html)
+- Konuyla alakali baska bir blog yazisi (https://avukataysenuravci.com/blog/[slug].html)
 
 Dis Linkleme Kurallari (En az 2 adet):
 - Gebze Adliyesi: https://gebze.adalet.gov.tr/
@@ -46,7 +46,7 @@ Anchor Text Kurali:
 ## Mobil Icerik Yerlesim Promptu
 
 ```text
-avukataysenuravci.com.tr icin yazacagin [KONU] makalesinde, mobil cihazlarda metinlerin okunabilir kalmasi icin su kurallara uy:
+avukataysenuravci.com icin yazacagin [KONU] makalesinde, mobil cihazlarda metinlerin okunabilir kalmasi icin su kurallara uy:
 
 - Her paragraf en fazla 3-4 cumle olsun.
 - Teknik surecleri mutlaka madde isaretleriyle ver.

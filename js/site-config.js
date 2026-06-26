@@ -1,5 +1,5 @@
 const siteConfig = {
-    siteUrl: "https://avukataysenuravci.com.tr",
+    siteUrl: "https://avukataysenuravci.com",
     brandName: "AV. AYŞENUR AVCI HUKUK BÜROSU",
     brandShort: "Ayşenur Avcı Hukuk Bürosu",
     attorneyName: "Av. Ayşenur Avcı",

@@ -5,7 +5,7 @@ Bu dokuman, makale iceriklerinin mobil cihazlarda maksimum okunabilirlikte olmas
 ## 1) Makale Mobil Okunabilirlik Promptu
 
 ```text
-"avukataysenuravci.com.tr sitesindeki [KONU ADI] makalesini, mobil cihazlarda (responsive) en yüksek okunabilirlik seviyesine getirmek için şu kurallara göre düzenle:
+"avukataysenuravci.com sitesindeki [KONU ADI] makalesini, mobil cihazlarda (responsive) en yüksek okunabilirlik seviyesine getirmek için şu kurallara göre düzenle:
 
 Kısa Paragraflar: Her paragrafı mobil ekranda en fazla 4-5 satır kaplayacak şekilde (yaklaşık 2-3 cümle) parçala.
 

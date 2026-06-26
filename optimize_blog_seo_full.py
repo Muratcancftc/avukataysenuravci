@@ -16,7 +16,7 @@ import json
 from pathlib import Path
 
 BLOG_DIR = Path("blog")
-BASE_URL = "https://avukataysenuravci.com.tr"
+BASE_URL = "https://avukataysenuravci.com"
 LOCAL_KEYWORDS = ["Gebze", "Darıca", "Çayırova"]
 
 # Slug düzeltmeleri (typo vb.)

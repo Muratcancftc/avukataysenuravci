@@ -1,11 +1,11 @@
 # Eksiksiz Ceviri ve Yerellestirme Promptu
 
-Bu prompt, `avukataysenuravci.com.tr` icin tam ceviri/localization islemlerinde kullanilir.
+Bu prompt, `avukataysenuravci.com` icin tam ceviri/localization islemlerinde kullanilir.
 
 ## Master Prompt
 
 ```text
-avukataysenuravci.com.tr sitemin tam yerellestirmesi (localization) icin asagida paylastigim icerigi [HEDEF DIL] diline cevir.
+avukataysenuravci.com sitemin tam yerellestirmesi (localization) icin asagida paylastigim icerigi [HEDEF DIL] diline cevir.
 
 Kesin Kurallar:
 1) Sifir Turkce:

@@ -7,8 +7,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = "https://avukataysenuravci.com.tr"
-SITE_HOST = "avukataysenuravci.com.tr"
+SITE_URL = "https://avukataysenuravci.com"
+SITE_HOST = "avukataysenuravci.com"
 OLD_HOST = "avukatmuratcan.com.tr"
 
 GLOBS = ("*.html", "*.php", "*.py", "*.js", "*.md", ".htaccess", "robots.txt", "package.json")

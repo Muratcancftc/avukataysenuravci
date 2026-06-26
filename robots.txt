@@ -3,4 +3,4 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /.git/
 
-Sitemap: https://avukataysenuravci.com.tr/sitemap.xml
+Sitemap: https://avukataysenuravci.com/sitemap.xml

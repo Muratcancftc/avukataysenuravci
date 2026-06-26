@@ -2,7 +2,7 @@ import os
 import re
 import subprocess
 
-SITE_URL = "https://avukataysenuravci.com.tr"
+SITE_URL = "https://avukataysenuravci.com"
 
 INTERNAL_LINKS = [
     {"href": f"{SITE_URL}/", "anchor": "Gebze hukuk burosu hizmetleri"},
