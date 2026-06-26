@@ -66,6 +66,13 @@ function parseTurkishDateToIso(text) {
     return isoDate.toISOString();
 }
 
+function ensureLinkTitles() {
+    document.querySelectorAll('a[href]:not([title])').forEach((link) => {
+        const label = (link.getAttribute('aria-label') || link.textContent || '').replace(/\s+/g, ' ').trim();
+        if (label && label.length <= 120) link.setAttribute('title', label);
+    });
+}
+
 function ensureSeoMetaTags() {
     const title = (document.title || (typeof siteConfig !== 'undefined' ? siteConfig.brandName : 'AV. AYŞENUR AVCI HUKUK BÜROSU')).trim();
     const descNode = document.querySelector('meta[name="description"]');
@@ -73,7 +80,7 @@ function ensureSeoMetaTags() {
     const description = (descNode?.getAttribute('content') || fallbackDesc).replace(/\s+/g, ' ').trim();
     const canonicalUrl = getCanonicalUrlFromLocation();
     const isBlog = window.location.pathname.includes('/blog/');
-    const image = `${window.location.origin}/favicon.svg`;
+    const image = `${(typeof siteConfig !== 'undefined' && siteConfig.siteUrl) ? siteConfig.siteUrl : window.location.origin}/images/logo-icon-512.png`;
 
     let canonicalTag = document.querySelector('link[rel="canonical"]');
     if (!canonicalTag) {
@@ -513,6 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPageHeaderSlider();
     initQuickCompensationCalculator();
     ensureSeoMetaTags();
+    ensureLinkTitles();
     injectResponsiveSeoOverrides();
 
     document.addEventListener('click', closeLangDropdownOutside);
@@ -1193,7 +1201,7 @@ async function renderFeaturedArticles() {
                 <span class="category" data-i18n="${article.categorySlug}">${catTitle}</span>
                 <h3>${title}</h3>
                 <p>${excerpt}</p>
-                <a href="${basePath}blog/${article.slug}.html" class="read-more">
+                <a href="${basePath}blog/${article.slug}.html" class="read-more" title="${title.replace(/"/g, '&quot;')}">
                     <span data-i18n="blog-read-more">${translations[lang]['blog-read-more']}</span> <i data-lucide="arrow-right" style="width: 14px;"></i>
                 </a>
             </article>

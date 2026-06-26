@@ -107,7 +107,7 @@
     const LIVE_DATA = {
         asgariUcret: '22.002',
         yasalFaiz: '%24',
-        kidemTavan: '89.253'
+        kidemTavan: '64.948,77'
     };
 
     function getCurrentSlug() {

@@ -93,7 +93,57 @@ const siteConfig = {
 
 const articles = [
     {
+        id: 128,
+        title: "Gebze'de 12. Yargı Paketi ve Çekişmeli Boşanma Davaları (2026)",
+        category: "Aile Hukuku",
+        categorySlug: "aile-hukuku",
+        slug: "gebze-12-yargi-paketi-bosanma-davalari-2026",
+        excerpt: "Gebze boşanma avukatı rehberi: 12. Yargı Paketi ile çekişmeli boşanmada iki aşamalı yargılama, velayet ve mal paylaşımı ",
+        date: "26 Haziran 2026",
+        content: "Gebze boşanma avukatı rehberi: 12. Yargı Paketi ile çekişmeli boşanmada iki aşam"
+    },
+    {
         id: 127,
+        title: "AYM Süresiz Nafaka Kararı: Gebze'de Boşanma Sonrası Ne Değişir? (2026)",
+        category: "Aile Hukuku",
+        categorySlug: "aile-hukuku",
+        slug: "gebze-aym-suresiz-nafaka-karari-2026",
+        excerpt: "Anayasa Mahkemesi süresiz yoksulluk nafakası iptali sonrası Gebze boşanma davalarında nafaka süresi, miktarı ve yeniden ",
+        date: "26 Haziran 2026",
+        content: "Anayasa Mahkemesi süresiz yoksulluk nafakası iptali sonrası Gebze boşanma davala"
+    },
+    {
+        id: 126,
+        title: "IBAN Mağdurları ve Hesap Kiralama Suçu: Gebze Ceza Avukatı Rehberi (2026)",
+        category: "Ceza Hukuku",
+        categorySlug: "ceza-hukuku",
+        slug: "gebze-iban-magdurlari-ceza-sorumlulugu-2026",
+        excerpt: "12. Yargı Paketi ile IBAN mağdurları ve hesap kiralama suçlarında Gebze ceza avukatı rehberi: savunma, ceza indirimi ve ",
+        date: "26 Haziran 2026",
+        content: "12. Yargı Paketi ile IBAN mağdurları ve hesap kiralama suçlarında Gebze ceza avu"
+    },
+    {
+        id: 125,
+        title: "Gebze Kıdem Tazminatı Tavanı 2026: Güncel Hesaplama Rehberi",
+        category: "İş Hukuku",
+        categorySlug: "is-hukuku",
+        slug: "gebze-kidem-tazminati-tavani-2026",
+        excerpt: "2026 kıdem tazminatı tavanı 64.948,77 TL. Gebze iş hukuku avukatı ile kıdem, ihbar ve işçi alacakları hesaplama rehberi ",
+        date: "26 Haziran 2026",
+        content: "2026 kıdem tazminatı tavanı 64.948,77 TL. Gebze iş hukuku avukatı ile kıdem, ihb"
+    },
+    {
+        id: 124,
+        title: "Gebze Kira Artış Oranı 2026: Kiracı ve Ev Sahibi Hakları Rehberi",
+        category: "Gayrimenkul",
+        categorySlug: "gayrimenkul",
+        slug: "gebze-kira-artis-orani-2026",
+        excerpt: "2026 Gebze kira artış oranı, TÜFE sınırı, kira tespit ve tahliye davalarında kiracı-ev sahibi hakları. Gebze gayrimenkul",
+        date: "26 Haziran 2026",
+        content: "2026 Gebze kira artış oranı, TÜFE sınırı, kira tespit ve tahliye davalarında kir"
+    },
+    {
+        id: 123,
         title: "Gebze'de Boşanma Davası Kaç Para Tutar? (2026 Güncel)",
         category: "Aile Hukuku",
         categorySlug: "aile-hukuku",
