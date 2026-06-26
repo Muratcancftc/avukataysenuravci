@@ -26,8 +26,14 @@ copy_if_exists \
   faaliyet-alanlari \
   favicon.ico \
   favicon.svg \
+  favicon-16.png \
   favicon-32.png \
+  favicon-48.png \
+  favicon-96.png \
   favicon-180.png \
+  favicon-192.png \
+  favicon-512.png \
+  site.webmanifest \
   robots.txt \
   sitemap.xml \
   logo.png \
