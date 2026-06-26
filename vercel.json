@@ -5,5 +5,25 @@
   "installCommand": "echo \"No install required\"",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "avukataysenuravci.com" }],
+      "destination": "https://avukataysenuravci.com.tr/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.avukataysenuravci.com" }],
+      "destination": "https://avukataysenuravci.com.tr/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.avukataysenuravci.com.tr" }],
+      "destination": "https://avukataysenuravci.com.tr/:path*",
+      "permanent": true
+    }
+  ]
 }
